@@ -121,6 +121,7 @@ const Project3d: React.FC<IProject3dProps> = () => {
     <button className="zoom-3d-btn" id={"btn-zoom-out"}>
      <MinusIcon />
     </button>
+    <button id="change-texture-btn-3d">Change Texture</button>
    </div>
   </div>
  );
