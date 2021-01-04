@@ -1,0 +1,53 @@
+@import "../product-view/mixins.scss";
+
+.product-3d {
+ position: relative;
+ height: 50vh;
+
+ @media (min-width: 992px) {
+  height: 100vh;
+ }
+ .btns-3d-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  @include flexbox();
+  @include flex-direction(column);
+ }
+ .zoom-3d-btn {
+  padding: 0;
+  line-height: auto;
+  @include transition(all, 0.3s, ease);
+  cursor: pointer;
+  display: block;
+  height: 4rem;
+  width: 4rem;
+  background: white;
+  border-radius: 2.5rem;
+  border: none;
+  padding-top: 3%;
+  &:focus {
+   outline: none;
+  }
+  svg {
+   width: 45%;
+   height: 50%;
+   margin: auto;
+   path {
+    fill: #7c7c7c;
+   }
+  }
+  &:first-child {
+   margin-bottom: 1rem;
+  }
+  &:hover {
+   svg {
+    width: 45%;
+    margin: auto;
+    path {
+     fill: #00468c;
+    }
+   }
+  }
+ }
+}

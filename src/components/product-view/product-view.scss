@@ -1,0 +1,12 @@
+@import "./mixins.scss";
+
+.product-view-container {
+ display: grid;
+ width: 100%;
+ grid-template-columns: 1fr;
+ grid-template-rows: 50% 50%;
+ @media (min-width: 992px) {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+ }
+}
