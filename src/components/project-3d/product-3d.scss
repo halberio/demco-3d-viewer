@@ -20,17 +20,18 @@
   @include transition(all, 0.3s, ease);
   cursor: pointer;
   display: block;
-  height: 4rem;
-  width: 4rem;
+  height: 5rem;
+  width: 5rem;
   background: white;
   border-radius: 2.5rem;
   border: none;
-  padding-top: 3%;
   &:focus {
    outline: none;
   }
+  padding-top: 6%;
+
   svg {
-   width: 45%;
+   width: 50%;
    height: 50%;
    margin: auto;
    path {
@@ -42,7 +43,6 @@
   }
   &:hover {
    svg {
-    width: 45%;
     margin: auto;
     path {
      fill: #00468c;

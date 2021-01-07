@@ -11,11 +11,12 @@ export default function Model({ mouse, ...props }: any) {
  //const { nodes, animations } = useLoader(GLTFLoader, "/stacy.glb");
  const model = useLoader(FBXLoader, "/Jeans.fbx");
  //const texture2 = useLoader(THREE.TextureLoader, "/texture2.jpg");
- console.log(model);
+
  const texture2 = React.useMemo(
   () => new THREE.TextureLoader().load("/texture2.jpg"),
   []
  );
+
  const texture1 = React.useMemo(
   () => new THREE.TextureLoader().load("/texture1.jpg"),
   []
