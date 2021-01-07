@@ -101,16 +101,13 @@ const Project3d: React.FC<IProject3dProps> = () => {
      shadow-camera-far={1500}
      castShadow
     />
-    <mesh position={[0, 0, -10]}>
-     <circleBufferGeometry args={[8, 64]} />
-     <meshBasicMaterial color="#03468C" />
-    </mesh>
+
     <Plane rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -10, 0]} />
     <Suspense fallback={null}>
      <ProductModel3D
       mouse={mouse}
-      position={[0, -10, 0]}
-      scale={[0.08, 0.08, 0.08]}
+      position={[0, -12, 0]}
+      scale={[0.2, 0.2, 0.2]}
      />
     </Suspense>
    </Canvas>
@@ -121,7 +118,7 @@ const Project3d: React.FC<IProject3dProps> = () => {
     <button className="zoom-3d-btn" id={"btn-zoom-out"}>
      <MinusIcon />
     </button>
-    <button id="change-texture-btn-3d">Change Texture</button>
+    {/* <button id="change-texture-btn-3d">Change Texture</button> */}
    </div>
   </div>
  );
