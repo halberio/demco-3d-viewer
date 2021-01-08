@@ -1,0 +1,48 @@
+@import "../mixins.scss";
+
+.fabric-radio-button {
+ height: 7rem;
+ width: 7rem;
+ cursor: pointer;
+ @include transition(all, 0.3s, ease);
+ padding: 0;
+ border-radius: 100%;
+ border: 3px solid #e0e0e0;
+ margin-top: 1rem;
+ margin-right: 1rem;
+ position: relative;
+ overflow: hidden;
+ box-sizing: border-box;
+ .content-container-radio {
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 7rem;
+  width: 7rem;
+  overflow: hidden;
+ }
+ &.selected {
+  border: 3px solid #00468c;
+ }
+ img.img-fabric-radio {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+ }
+ .bar-rotated {
+  display: block;
+  height: 100%;
+  background: #e0e0e0;
+  width: 3px;
+  @include transform(translateX(-3px) rotate(45deg));
+ }
+ &:focus {
+  outline: none;
+ }
+}

@@ -106,8 +106,8 @@ const Project3d: React.FC<IProject3dProps> = () => {
     <Suspense fallback={null}>
      <ProductModel3D
       mouse={mouse}
-      position={[0, -12, 0]}
-      scale={[0.2, 0.2, 0.2]}
+      position={[0, -20, 0]}
+      scale={[0.31, 0.31, 0.31]}
      />
     </Suspense>
    </Canvas>

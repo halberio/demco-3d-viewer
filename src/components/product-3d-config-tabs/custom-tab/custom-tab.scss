@@ -4,11 +4,11 @@
  display: grid;
  grid-template-columns: 1fr 100%;
  align-items: center;
- max-width: 24rem;
  padding-top: 2rem !important;
  padding-bottom: 2rem !important;
  width: 100%;
  .name {
+  padding-right: 1rem;
   display: block;
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
@@ -16,7 +16,6 @@
   width: 100%;
   word-wrap: break-word !important;
   text-align: center;
-  max-width: 10;
   white-space: pre;
  }
  .custom-icon-container {
