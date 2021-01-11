@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Drawer } from "antd";
 import { useForm } from "react-hook-form";
 import { LazerOpenModalButton } from "./buttons/LazerOpenModalButton";
+import { LazerCanvas } from "./canvas/LazerCanvas";
 
 export type ILazerFormProps = {};
 
@@ -30,18 +31,18 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
     />
    </Row>
    <Drawer
+    height="calc(100vh - 129px)"
     placement="bottom"
     visible={drawerOpened}
     closable
     onClose={() => setDrawerOpened(false)}
    >
-    <h1>lazer drawer</h1>
-    <p>
-     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet sint,
-     repellendus pariatur consequatur delectus dolores, quidem cupiditate
-     voluptate accusamus unde magni explicabo architecto! Ipsum adipisci
-     repellat quis eos ea incidunt.
-    </p>
+    <Row>
+     <Col span={12}>
+      <LazerCanvas />
+     </Col>
+     <Col span={12}></Col>
+    </Row>
    </Drawer>
   </form>
  );

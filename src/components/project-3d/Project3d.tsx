@@ -91,7 +91,7 @@ const Project3d: React.FC<IProject3dProps> = () => {
      intensity={0.5}
      position={[0, 50, 0]}
     />
-    <directionalLight
+    {/* <directionalLight
      position={[-8, 20, 8]}
      shadow-camera-left={d * -1}
      shadow-camera-bottom={d * -1}
@@ -100,7 +100,7 @@ const Project3d: React.FC<IProject3dProps> = () => {
      shadow-camera-near={0.1}
      shadow-camera-far={1500}
      castShadow
-    />
+    /> */}
 
     <Plane rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -10, 0]} />
     <Suspense fallback={null}>
