@@ -1,0 +1,59 @@
+@import "./mixins.scss";
+
+.lazer-open-modal-button {
+ cursor: pointer;
+ @include flexbox();
+ @include flex-direction(row);
+ @include align-items(center);
+ @include justify-content(space-between);
+ height: 7rem;
+ width: 100%;
+ padding: 2rem;
+ background: var(--white);
+ border: 1px solid #dcdbdc;
+ border-radius: 5px;
+ &:focus {
+  outline: none;
+ }
+ .lazer-btn-left-col {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(space-between);
+  font-family: "Poppins", sans-serif;
+  font-size: 2.4;
+  font-weight: 600;
+  .lazer-txt {
+   margin-left: 20px;
+   @include flexbox();
+   @include flex-direction(column);
+   text-align: left;
+   .lazer-txt-silver {
+    color: #7c7c7c;
+   }
+  }
+ }
+
+ svg {
+  width: 4rem;
+  height: 4rem;
+  path {
+   fill: #7c7c7c;
+  }
+ }
+ .icon-brush-container {
+  background: #e5f1fa;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  svg {
+   width: 3rem;
+   height: 3rem;
+   path {
+    fill: #00468c;
+   }
+  }
+ }
+}

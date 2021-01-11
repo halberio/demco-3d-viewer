@@ -12,6 +12,8 @@ import { CustomDesignIcon } from "./icons/CustomDesignIcon";
 import { StylingForm } from "./forms/StylingForm";
 import { FabricForm } from "./forms/FabricForm";
 import { ColorsForm } from "./forms/ColorsForm";
+import { LazerForm } from "./forms/LazerForm";
+import { DamageForm } from "./forms/DamageForm";
 const { TabPane } = Tabs;
 
 export type IProduct3dConfigTabsProps = {
@@ -48,10 +50,10 @@ const Product3dConfigTabs: React.FC<IProduct3dConfigTabsProps> = ({
      tab={<CustomTab name="LASER INTENSITY" icon={<LazerIcon />} />}
      key="4"
     >
-     Content of Tab 4
+     <LazerForm />
     </TabPane>
     <TabPane tab={<CustomTab name="DAMAGES" icon={<DamageIcon />} />} key="5">
-     Content of Tab 5
+     <DamageForm />
     </TabPane>
     <TabPane
      tab={

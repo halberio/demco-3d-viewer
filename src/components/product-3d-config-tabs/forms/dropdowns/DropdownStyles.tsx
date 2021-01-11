@@ -31,7 +31,6 @@ const DropdownStyles = (props: IDropdownStylesProps) => {
 
  const customStyles = {
   control: () => ({
-   margin: "1rem",
    display: "flex",
    border: "1px solid #CECECE",
    alignItems: "center",
