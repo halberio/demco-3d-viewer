@@ -119,17 +119,23 @@ html {
  padding: 0 !important;
 }
 
-.canvas-container {
+.canvas-container,
+.canvas-container-back {
  width: 100%;
  height: 100%;
 }
 #lazer-canvas {
- width: 100%;
- height: 100%;
  cursor: none !important;
 }
 
-.custom-brush-cursor {
+#lazer-canvas-back {
+ cursor: none !important;
+}
+
+.custom-brush-cursor,
+.custom-brush-cursor-back {
+ top: -500px;
+ left: -500px;
  @include transform(translate(-50%, -50%));
  pointer-events: none;
  display: block;

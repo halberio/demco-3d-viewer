@@ -2,7 +2,8 @@ import React from "react";
 import { Row, Col, Drawer } from "antd";
 import { useForm } from "react-hook-form";
 import { LazerOpenModalButton } from "./buttons/LazerOpenModalButton";
-import { LazerCanvas } from "./canvas/LazerCanvas";
+import { FrontLazerCanvas } from "./canvas/FrontLazerCanvas";
+import { BackLazerCanvas } from "./canvas/BackLazerCanvas";
 
 export type ILazerFormProps = {};
 
@@ -39,9 +40,11 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
    >
     <Row>
      <Col span={12}>
-      <LazerCanvas />
+      <FrontLazerCanvas />
      </Col>
-     <Col span={12}></Col>
+     <Col span={12}>
+      <BackLazerCanvas />
+     </Col>
     </Row>
    </Drawer>
   </form>
