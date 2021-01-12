@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { LazerOpenModalButton } from "./buttons/LazerOpenModalButton";
 import { FrontLazerCanvas } from "./canvas/FrontLazerCanvas";
 import { BackLazerCanvas } from "./canvas/BackLazerCanvas";
+import { LazerCanvasConfigurator } from "./canvas-configurators/LazerCanvasConfigurator";
 
 export type ILazerFormProps = {};
 
@@ -38,10 +39,13 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
     closable
     onClose={() => setDrawerOpened(false)}
    >
-    <Row>
+    <Row className="container-configurator">
      <Col span={12}>
       <FrontLazerCanvas />
      </Col>
+     <div className="configurator">
+      <LazerCanvasConfigurator />
+     </div>
      <Col span={12}>
       <BackLazerCanvas />
      </Col>

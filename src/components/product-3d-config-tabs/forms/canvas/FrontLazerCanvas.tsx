@@ -38,10 +38,10 @@ const FrontLazerCanvas = () => {
    imageObj1.onload = function () {
     context.drawImage(
      imageObj1,
-     canvas.clientWidth / 2,
+     canvas.clientWidth / 2 - 100,
      canvas.height / 3.5,
-     imageObj1.width / 2,
-     imageObj1.height / 2
+     imageObj1.width * 0.7,
+     imageObj1.height * 0.7
     );
    };
   }
@@ -185,8 +185,8 @@ const FrontLazerCanvas = () => {
    <div className="custom-brush-cursor" />
    <canvas
     id="lazer-canvas"
-    width={window.innerWidth / 2}
-    height={window.innerHeight - 130}
+    width={window.innerWidth / 2 - 40}
+    height={window.innerHeight - 130 - 20}
     ref={canvasRef}
    />
   </div>

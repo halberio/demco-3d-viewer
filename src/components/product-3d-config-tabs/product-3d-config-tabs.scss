@@ -146,3 +146,22 @@ html {
  height: 44px;
  border: 1px solid #919191;
 }
+
+.container-configurator {
+ width: 100%;
+ position: relative;
+ .configurator {
+  padding: 2rem;
+
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 15%;
+  @include transform(translateX(-50%));
+  width: 15rem;
+  height: 46rem;
+  background: white;
+  border: 1px solid #809ec2;
+  border-radius: 20rem;
+ }
+}

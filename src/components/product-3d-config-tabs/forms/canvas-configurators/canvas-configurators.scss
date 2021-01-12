@@ -1,0 +1,82 @@
+@import "./mixins.scss";
+
+.choose-cursor-btn {
+ margin-top: 2rem;
+ border: 1px solid #809ec2;
+ width: 99px;
+ height: 99px;
+ cursor: pointer;
+ @include flexbox();
+ @include align-items(center);
+ @include justify-content(center);
+ @include transition(all, 0.3s, ease);
+ svg {
+  width: 34px;
+  height: 34px;
+  path {
+   fill: #000000;
+   @include transition(all, 0.3s, ease);
+  }
+ }
+ border-radius: 100%;
+ background: white;
+ &:focus {
+  outline: none;
+ }
+ &:hover {
+  background: #00468c;
+  svg {
+   path {
+    fill: #ffffff;
+    @include transition(all, 0.3s, ease);
+   }
+  }
+ }
+}
+
+.vertical-slider-configurator {
+ padding: 0;
+ @include flexbox();
+ @include flex-direction(column);
+ @include align-items(center);
+ height: 17rem;
+ .thumb {
+  margin: 0;
+  background: #00468c;
+  width: 19px;
+  height: 9px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  &:focus {
+   outline: none;
+  }
+ }
+
+ .track {
+  background: #e0f0f8;
+  width: 2px;
+  border-radius: 4px;
+ }
+}
+
+.title-config {
+ color: #000000;
+ font-weight: bold;
+}
+.sub-title-config {
+ color: #7c7c7c;
+ font-weight: normal;
+ font-size: 12px;
+}
+
+.circle-color {
+ background: #7a9ec5;
+ width: 29px;
+ height: 29px;
+ border-radius: 100%;
+ &.small {
+  width: 7px;
+  height: 7px;
+ }
+}
