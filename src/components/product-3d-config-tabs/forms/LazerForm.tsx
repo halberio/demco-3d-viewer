@@ -39,6 +39,9 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
     closable
     onClose={() => setDrawerOpened(false)}
    >
+    <Row justify="center" style={{ width: "100%" }}>
+     <h1>Identify Lazer Area</h1>
+    </Row>
     <Row className="container-configurator">
      <Col span={12}>
       <FrontLazerCanvas />

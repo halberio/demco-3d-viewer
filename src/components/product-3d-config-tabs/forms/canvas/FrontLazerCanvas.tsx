@@ -39,7 +39,7 @@ const FrontLazerCanvas = () => {
     context.drawImage(
      imageObj1,
      canvas.clientWidth / 2 - 100,
-     canvas.height / 3.5,
+     canvas.height / 5,
      imageObj1.width * 0.7,
      imageObj1.height * 0.7
     );
