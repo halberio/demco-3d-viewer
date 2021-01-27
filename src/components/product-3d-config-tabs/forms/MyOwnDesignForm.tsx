@@ -2,15 +2,13 @@ import React from "react";
 import { Row, Col, Drawer } from "antd";
 import { useForm } from "react-hook-form";
 import { LazerOpenModalButton } from "./buttons/LazerOpenModalButton";
-import { FrontLazerCanvas } from "./canvas/FrontLazerCanvas";
-import { BackLazerCanvas } from "./canvas/BackLazerCanvas";
-import { LazerCanvasConfigurator } from "./canvas-configurators/LazerCanvasConfigurator";
+import { FrontMyOwnDesignCanvas } from "./canvas/FrontMyOwnDesignCanvas";
+import { BackMyOwnDesignCanvas } from "./canvas/BackMyOwnDesignCanvas";
+import { OwnDesignConfigurator } from "./canvas-configurators/OwnDesignConfigurator";
 
-export type ILazerFormProps = {};
+export type IMyOwnDesignFormProps = {};
 
-//TODO: Moez please take in consideration : that we recommande submit a screen shot of the canvas after you get the config
-// ya3ni : ba3d mè el user yraka7 fazetou a3mel screen shot 3al canvas b ay librairy w a3mel submit lel photo
-const LazerForm: React.FC<ILazerFormProps> = ({}) => {
+const MyOwnDesignForm: React.FC<IMyOwnDesignFormProps> = ({}) => {
  const [drawerOpened, setDrawerOpened] = React.useState(false);
 
  const { register, control, handleSubmit, watch, errors } = useForm();
@@ -20,7 +18,7 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
    <Row>
     <Col span={24}>
      <LazerOpenModalButton
-      title="You can change the laser design "
+      title="Add your design"
       onClick={() => setDrawerOpened(true)}
      />
     </Col>
@@ -42,17 +40,17 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
     onClose={() => setDrawerOpened(false)}
    >
     <Row justify="center" style={{ width: "100%" }}>
-     <h1>Identify Lazer Area</h1>
+     <h1>Add your design</h1>
     </Row>
     <Row className="container-configurator">
      <Col span={12}>
-      <FrontLazerCanvas />
+      <FrontMyOwnDesignCanvas />
      </Col>
      <div className="configurator">
-      <LazerCanvasConfigurator />
+      <OwnDesignConfigurator />
      </div>
      <Col span={12}>
-      <BackLazerCanvas />
+      <BackMyOwnDesignCanvas />
      </Col>
     </Row>
    </Drawer>
@@ -60,4 +58,4 @@ const LazerForm: React.FC<ILazerFormProps> = ({}) => {
  );
 };
 
-export { LazerForm };
+export { MyOwnDesignForm };

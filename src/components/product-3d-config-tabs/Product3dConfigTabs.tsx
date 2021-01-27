@@ -14,6 +14,7 @@ import { FabricForm } from "./forms/FabricForm";
 import { ColorsForm } from "./forms/ColorsForm";
 import { LazerForm } from "./forms/LazerForm";
 import { DamageForm } from "./forms/DamageForm";
+import { MyOwnDesignForm } from "./forms/MyOwnDesignForm";
 const { TabPane } = Tabs;
 
 export type IProduct3dConfigTabsProps = {
@@ -64,7 +65,7 @@ const Product3dConfigTabs: React.FC<IProduct3dConfigTabsProps> = ({
      }
      key="6"
     >
-     Content of Tab 6
+     <MyOwnDesignForm />
     </TabPane>
    </Tabs>
   </div>
