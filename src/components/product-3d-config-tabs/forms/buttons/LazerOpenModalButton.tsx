@@ -12,7 +12,7 @@ const LazerOpenModalButton: React.FC<ILazerOpenModalButtonProps> = ({
  title,
 }) => {
  return (
-  <button className="lazer-open-modal-button" onClick={onClick}>
+  <button type="button" className="lazer-open-modal-button" onClick={onClick}>
    <div className="lazer-btn-left-col">
     <PantsIcon />
     <div className="lazer-txt">

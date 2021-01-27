@@ -2,70 +2,48 @@ import React from "react";
 import { Row, Col } from "antd";
 import ReactSlider from "react-slider";
 import "./canvas-configurators.scss";
-import { EditBrushIcon } from "../../icons/EditBrushIcon";
+import { DamageIndicatorIcon } from "../../icons/DamageIndicatorIcon";
+
+const defaultDamageList = [
+ {
+  id: "0",
+  color: "#FF872A",
+  img: "/damage-assets/1.png",
+ },
+ {
+  id: "1",
+  color: "#06C170",
+  img: "/damage-assets/2.png",
+ },
+ {
+  id: "2",
+  color: "#7A9EC5",
+  img: "/damage-assets/3.png",
+ },
+];
 export type ILazerCanvasConfiguratorProps = {};
 
 const DamageCanvasConfigurator: React.FC<ILazerCanvasConfiguratorProps> = () => {
  const [currentSizeValue, setCurrentSizeValue] = React.useState(50);
  const [currentIntensityValue, setCurrentIntensityValue] = React.useState(50);
+
+ const [damageList, setDamageList] = React.useState(defaultDamageList);
  return (
   <Row style={{ width: "100%" }}>
    <Col span={24}>
     <Row gutter={[0, 24]} justify="center">
      <button className="choose-cursor-btn">
-      <EditBrushIcon />
+      <DamageIndicatorIcon />
      </button>
     </Row>
-    <Row style={{ width: "100%" }} justify="space-between">
-     <Col span={12}>
-      <Row justify="center" style={{ marginBottom: "2rem" }}>
-       <div className="title-config">Size</div>
-      </Row>
-      <Row justify="center" style={{ marginBottom: "1rem" }}>
-       <div className="circle-color" />
-      </Row>
-      <Row justify="center">
-       <ReactSlider
-        className="vertical-slider-configurator"
-        thumbClassName="thumb"
-        trackClassName="track"
-        min={0}
-        orientation="vertical"
-        max={100}
-        value={currentSizeValue}
-        onChange={(value: any) => setCurrentSizeValue(value)}
-        renderThumb={(props, state) => <div {...props}></div>}
-       />
-      </Row>
-      <Row justify="center" style={{ marginTop: "1rem", marginRight: "1px" }}>
-       <div className="circle-color small" />
-      </Row>
-     </Col>
-     <Col span={12}>
-      <Row justify="center" style={{ marginBottom: "2rem" }}>
-       <div className="title-config">Intensity</div>
-      </Row>
-      <Row justify="center" style={{ marginBottom: "1.6rem" }}>
-       <div className="sub-title-config">Lighter</div>
-      </Row>
-      <Row justify="center">
-       <ReactSlider
-        className="vertical-slider-configurator"
-        thumbClassName="thumb"
-        trackClassName="track"
-        min={0}
-        orientation="vertical"
-        max={100}
-        value={currentIntensityValue}
-        onChange={(value: any) => setCurrentIntensityValue(value)}
-        renderThumb={(props, state) => <div {...props}></div>}
-       />
-      </Row>
-      <Row justify="center" style={{ marginTop: ".4rem" }}>
-       <div className="sub-title-config">Stronger</div>
-      </Row>
-     </Col>
+    <Row gutter={[0, 24]} justify="center">
+     {damageList.map((item, index) => (
+      <button className="btn-damage-chooser" key={index}>
+       <img src={item.img} alt={`id alt icon demco${index}`} />
+      </button>
+     ))}
     </Row>
+    <Row style={{ width: "100%" }} justify="space-between"></Row>
    </Col>
   </Row>
  );

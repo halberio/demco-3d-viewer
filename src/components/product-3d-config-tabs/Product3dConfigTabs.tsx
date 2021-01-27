@@ -27,6 +27,7 @@ const Product3dConfigTabs: React.FC<IProduct3dConfigTabsProps> = ({
  product,
 }) => {
  const { name } = product;
+ const [activeTabKey, setActiveTabKey] = React.useState("1");
  return (
   <div className="product-3d-config-tabs">
    <div className="top-header">
@@ -34,18 +35,22 @@ const Product3dConfigTabs: React.FC<IProduct3dConfigTabsProps> = ({
     <div className="product-name">{name}</div>
    </div>
 
-   <Tabs tabPosition={"left"}>
+   <Tabs
+    tabPosition={"left"}
+    activeKey={activeTabKey}
+    onChange={(key) => setActiveTabKey(key)}
+   >
     <TabPane tab={<CustomTab name="Style" icon={<PantsIcon />} />} key="1">
-     <StylingForm />
+     <StylingForm {...{ setActiveTabKey }} />
     </TabPane>
     <TabPane tab={<CustomTab name="FABRIC" icon={<FabricIcon />} />} key="2">
-     <FabricForm />
+     <FabricForm {...{ setActiveTabKey }} />
     </TabPane>
     <TabPane
      tab={<CustomTab name="BASE COLOUR" icon={<ColorsIcon />} />}
      key="3"
     >
-     <ColorsForm />
+     <ColorsForm {...{ setActiveTabKey }} />
     </TabPane>
     <TabPane
      tab={<CustomTab name="LASER INTENSITY" icon={<LazerIcon />} />}

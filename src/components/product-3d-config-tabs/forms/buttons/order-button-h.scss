@@ -1,0 +1,29 @@
+@import "./mixins.scss";
+
+.order-btn-h {
+ background: #03468c;
+ border-radius: 5px;
+ padding-top: 2rem;
+ cursor: pointer;
+ padding-bottom: 2rem;
+ padding-right: 5rem;
+ padding-left: 5rem;
+ color: white;
+ font-family: "Poppins", sans-serif;
+ border: none;
+ outline: none;
+ font-size: 20px;
+ @include transition(all, 0.4s, ease);
+ margin: 1rem;
+ &:focus {
+  outline: none;
+ }
+ &:hover {
+  opacity: 0.7;
+ }
+ &.outlined-btn-h {
+  color: #03468c;
+  border: 1px solid #03468c;
+  background: white;
+ }
+}

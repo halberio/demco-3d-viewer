@@ -2,7 +2,6 @@ import React from "react";
 import "./color-slider.scss";
 import ReactSlider from "react-slider";
 import { Row, Col } from "antd";
-export type IColorSliderProps = {};
 
 interface TLabelProps {
  label: string;
@@ -14,7 +13,10 @@ const Label = ({ label, index, isCurrent }: TLabelProps) => (
   {label}
  </div>
 );
-const ColorSlider: React.FC<IColorSliderProps> = ({}) => {
+export type IColorSliderProps = {
+ returColorValue: (v: any) => void;
+};
+const ColorSlider: React.FC<IColorSliderProps> = ({ returColorValue }) => {
  const [currentValue, setCurrentValue] = React.useState(50);
 
  const getIsCurrent = (index: number, currentValue: number) => {
@@ -29,6 +31,11 @@ const ColorSlider: React.FC<IColorSliderProps> = ({}) => {
     return false;
   }
  };
+
+ const handleValueChange = React.useCallback((value: any) => {
+  setCurrentValue(value);
+  returColorValue(value);
+ }, []);
  return (
   <div>
    <div className="slider-fabric-img">
@@ -41,7 +48,7 @@ const ColorSlider: React.FC<IColorSliderProps> = ({}) => {
     min={0}
     max={100}
     value={currentValue}
-    onChange={(value: any) => setCurrentValue(value)}
+    onChange={(value: any) => handleValueChange(value)}
     ariaValuetext={"hellow"}
     ariaLabel={["Lighter", "Medium blue", "Darker"]}
     renderThumb={(props, state) => <div {...props}></div>}
@@ -49,6 +56,7 @@ const ColorSlider: React.FC<IColorSliderProps> = ({}) => {
    <div className="slider-colors-labels-row">
     {["Lighter", "Medium blue", "Darker"].map((label, index) => (
      <Label
+      key={index}
       isCurrent={getIsCurrent(index, currentValue)}
       label={label}
       index={index}

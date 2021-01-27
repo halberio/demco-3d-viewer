@@ -4,7 +4,42 @@ html {
  font-size: 10px;
  // this to prepare for using REM;
 }
+.btn-damage-chooser {
+ border-radius: 100%;
+ border: none;
+ background: transparent;
+ border: 1px solid #00468c;
+ height: 8rem;
+ width: 8rem;
+ cursor: pointer;
+ padding: 0;
+ margin: 0.2rem;
+ margin-top: 2rem;
+ object-fit: cover;
+ overflow: hidden;
+ @include transition(all, 0.3s, ease);
+ img {
+  object-fit: cover;
+  height: 8.1rem;
+  width: 8.1rem;
+ }
+ &:focus {
+  outline: none;
+ }
+ &:active {
+  @include transform(scale(0.9));
+ }
+}
 .product-3d-config-tabs {
+ .ant-tabs-content-holder {
+  height: 65.5rem;
+ }
+ .ant-tabs-content {
+  height: 65.5rem !important;
+  form {
+   height: 100%;
+  }
+ }
  .ant-tabs {
   border-top: 1px solid #e0e0e0;
  }
@@ -163,5 +198,157 @@ html {
   background: white;
   border: 1px solid #809ec2;
   border-radius: 20rem;
+ }
+}
+input,
+textarea {
+ &:focus {
+  outline: none;
+ }
+}
+
+.my-own-design-configurator {
+ margin-top: 10vh;
+ position: relative;
+ @include flexbox();
+ @include flex-direction(row);
+ @include justify-content(center);
+ width: 100%;
+
+ .my-own-config-col {
+  flex: 0.5;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+ }
+ .m-o-jean-img-container {
+  display: block;
+  position: relative;
+  max-width: 241px;
+  max-height: 500px;
+  img {
+   -drag: none;
+   user-select: none;
+   -moz-user-select: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   position: relative;
+   object-fit: contain;
+   width: 100%;
+   max-width: 241px;
+   max-height: 500px;
+   height: 100%;
+  }
+
+  .circle-btn-shooser {
+   position: absolute;
+   width: 41px;
+   height: 41px;
+   border-radius: 100%;
+   border: none;
+   cursor: pointer;
+   @include transition(all, 0.2s, ease);
+   @include flexbox();
+   @include justify-content(center);
+   @include align-items(center);
+   background: #ff872a;
+   &:focus {
+    outline: none;
+   }
+   svg {
+    width: 14px;
+    path {
+     fill: white;
+    }
+   }
+
+   &.orange-btn-c {
+    left: 30%;
+    top: 20%;
+   }
+   &.green-btn-c {
+    background: #06c170;
+    right: 10%;
+    top: 35%;
+   }
+   &.silver-btn-c {
+    background: #7a9ec5;
+    right: 30%;
+    top: 15%;
+   }
+  }
+ }
+ .m-o-customizer-picker-container {
+  padding: 1rem;
+  position: absolute;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  min-width: 100px;
+  border: 1px solid #7a9ec5;
+  border-radius: 60px;
+
+  .filled-btn-picker-m-o {
+   @include flexbox();
+   @include justify-content(center);
+   @include align-items(center);
+   border-radius: 100%;
+   border: none;
+   background: #00468c;
+   border: 1px solid #00468c;
+   height: 7rem;
+   width: 7rem;
+   cursor: pointer;
+   padding: 0;
+   margin: 0.2rem;
+   object-fit: cover;
+   overflow: hidden;
+   @include transition(all, 0.3s, ease);
+   svg {
+    object-fit: cover;
+    width: 30%;
+    path {
+     fill: white;
+    }
+   }
+   &:focus {
+    outline: none;
+   }
+   &:active {
+    @include transform(scale(0.9));
+   }
+  }
+  .btn-with-dot-indicator {
+   position: relative;
+  }
+  .btn-damage-chooser-mo {
+   position: relative;
+   border-radius: 100%;
+   border: none;
+   background: transparent;
+   border: 1px solid #00468c;
+   height: 7rem;
+   width: 7rem;
+   cursor: pointer;
+   padding: 0;
+   margin: 0.2rem;
+   margin-bottom: 0.6rem;
+   margin-top: 0.6rem;
+   object-fit: cover;
+   overflow: hidden;
+   @include transition(all, 0.3s, ease);
+   img {
+    object-fit: cover;
+    height: 7.1rem;
+    width: 7.1rem;
+   }
+   &:focus {
+    outline: none;
+   }
+   &:active {
+    @include transform(scale(0.9));
+   }
+  }
  }
 }

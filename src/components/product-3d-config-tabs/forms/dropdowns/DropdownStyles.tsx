@@ -62,6 +62,7 @@ const DropdownStyles = (props: IDropdownStylesProps) => {
        styles={customStyles}
        getOptionLabel={(option: any) => option.label}
        getOptionValue={(option: any) => option.value}
+       return={(option: any) => option.value}
       />
      }
     />
