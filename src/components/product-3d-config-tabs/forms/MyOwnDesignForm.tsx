@@ -10,69 +10,17 @@ export type IMyOwnDesignFormProps = {};
 const defaultDamageList = [
  {
   id: "0",
-  color: "#FF872A",
   img: "/damage-assets/1.png",
  },
- {
-  id: "1",
-  color: "#06C170",
-  img: "/damage-assets/2.png",
- },
+ { id: "1", img: "/damage-assets/2.png" },
  {
   id: "2",
-  color: "#7A9EC5",
   img: "/damage-assets/3.png",
  },
 ];
 const MyOwnDesignForm: React.FC<IMyOwnDesignFormProps> = ({}) => {
  const [drawerOpened, setDrawerOpened] = React.useState(false);
- const [selectedTexture, setSelectedTexture] = React.useState<any>(null);
  const [owndesignlist, setDamageList] = React.useState(defaultDamageList);
- const [
-  backPackSelectedTexture,
-  setbackPackSelectedTexture,
- ] = React.useState<any>();
- const [
-  frontRightSelectedTexture,
-  setfrontRightSelectedTexture,
- ] = React.useState();
- const [
-  frontLeftSelectedTexture,
-  setfrontLeftSelectedTexture,
- ] = React.useState();
- const handleLeftFrontTexture = React.useCallback(
-  (backgroundColor) => {
-   const objectIdentifier = {
-    ...selectedTexture,
-    backgroundColor: backgroundColor,
-   };
-   setfrontLeftSelectedTexture(objectIdentifier);
-  },
-  [selectedTexture]
- );
-
- const handleRightFrontTexture = React.useCallback(
-  (backgroundColor) => {
-   const objectIdentifier = {
-    ...selectedTexture,
-    backgroundColor: backgroundColor,
-   };
-   setfrontLeftSelectedTexture(objectIdentifier);
-  },
-  [selectedTexture]
- );
-
- const handleBackPackTexture = React.useCallback(
-  (backgroundColor) => {
-   const objectIdentifier = {
-    ...selectedTexture,
-    backgroundColor: backgroundColor,
-   };
-   setfrontLeftSelectedTexture(objectIdentifier);
-  },
-  [selectedTexture]
- );
-
  const { register, control, handleSubmit, watch, errors } = useForm();
  const onSubmit = (data: any) => {
   if (errors) {
@@ -102,21 +50,60 @@ const MyOwnDesignForm: React.FC<IMyOwnDesignFormProps> = ({}) => {
    index: 2,
   },
  ]);
+
+ const [selectedTexture, setSelectedTexture] = React.useState<any>(null);
+ const [
+  backPackSelectedTexture,
+  setbackPackSelectedTexture,
+ ] = React.useState<any>();
+ const [
+  frontRightSelectedTexture,
+  setfrontRightSelectedTexture,
+ ] = React.useState();
+ const [
+  frontLeftSelectedTexture,
+  setfrontLeftSelectedTexture,
+ ] = React.useState();
+ const handleLeftFrontTexture = () => {
+  const objectIdentifier = {
+   ...selectedTexture,
+   color: "#FF872A",
+  };
+  setSelectedTexture(objectIdentifier);
+  setfrontLeftSelectedTexture(objectIdentifier);
+ };
+
+ const handleRightFrontTexture = () => {
+  const objectIdentifier = {
+   ...selectedTexture,
+   color: "#06C170",
+  };
+  setSelectedTexture(objectIdentifier);
+  setfrontLeftSelectedTexture(objectIdentifier);
+ };
+
+ const handleBackPackTexture = (backgroundColor: any) => {
+  const objectIdentifier = {
+   ...selectedTexture,
+   color: "#7A9EC5",
+  };
+  setSelectedTexture(objectIdentifier);
+  setfrontLeftSelectedTexture(objectIdentifier);
+ };
+
  const handleSelectedTexture = React.useCallback(
-  (item, index) => {
-   let tempArray = [...textColorsList];
-
-   tempArray.forEach((element) => {
-    if (element.index === index) {
-     element.color = item.color;
-    }
-   });
-
-   setTextureColorsList(tempArray);
-   setSelectedTexture(item);
+  (item: any, index: number) => {
+   if (selectedTexture) {
+    let tempArray = [...textColorsList];
+    tempArray[index].color = selectedTexture.color;
+    setTextureColorsList(tempArray);
+   }
   },
   [selectedTexture]
  );
+ React.useEffect(() => {
+  console.log("changed");
+ }, [selectedTexture]);
  return (
   <form onSubmit={handleSubmit(onSubmit)}>
    <Row>
@@ -153,13 +140,17 @@ const MyOwnDesignForm: React.FC<IMyOwnDesignFormProps> = ({}) => {
         <img src="/assets/jean-front.png" alt="demco jean front" />
 
         <button
-         className="circle-btn-shooser orange-btn-c"
+         className={`circle-btn-shooser orange-btn-c  ${
+          selectedTexture === frontLeftSelectedTexture ? "active" : ""
+         }`}
          onClick={handleLeftFrontTexture}
         >
          <DamageIndicatorIcon />
         </button>
         <button
-         className="circle-btn-shooser green-btn-c"
+         className={`circle-btn-shooser green-btn-c ${
+          selectedTexture === frontRightSelectedTexture ? "active" : ""
+         }`}
          onClick={handleRightFrontTexture}
         >
          <DamageIndicatorIcon />
@@ -194,7 +185,9 @@ const MyOwnDesignForm: React.FC<IMyOwnDesignFormProps> = ({}) => {
        <div className="m-o-jean-img-container">
         <img src="/assets/jean-back.png" alt="demco jean back" />
         <button
-         className="circle-btn-shooser silver-btn-c"
+         className={`circle-btn-shooser silver-btn-c ${
+          selectedTexture === backPackSelectedTexture ? "active" : ""
+         }`}
          onClick={handleBackPackTexture}
         >
          <DamageIndicatorIcon />

@@ -242,6 +242,9 @@ textarea {
   }
 
   .circle-btn-shooser {
+   &.active {
+    border: 1px solid white;
+   }
    position: absolute;
    width: 41px;
    height: 41px;
